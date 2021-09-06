@@ -44,4 +44,9 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  if (localStorage.getItem("correo")){
+    correo_json = localStorage.getItem("correo");
+    correo = JSON.parse(correo_json);
+    document.getElementById("u_name").innerHTML =
+    "Usuario: " + correo.e_mail;}
 });

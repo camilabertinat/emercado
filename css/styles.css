@@ -146,3 +146,7 @@ a.custom-card:hover {
   margin-right: 75px;
 }
 
+#u_name{
+  display: inline-block;
+  color: white;
+}
