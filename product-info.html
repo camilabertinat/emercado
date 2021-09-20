@@ -13,6 +13,29 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <style>.star-rating {
+    direction: rtl;
+    display: inline-block;
+    padding: 20px
+}
+
+.star-rating input[type=radio] {
+    display: none
+}
+
+.star-rating label {
+    color: rgb(133, 142, 192);
+    font-size: 25px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type=radio]:checked ~ label {
+    color: #ffbf00
+}
+</style>
 </head>
 
 <body>
@@ -26,14 +49,47 @@
       <p class="py-2 d-none d-md-inline-block" id="u_name" recuperarDatos()></p>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div id="desc" class="container p-5">
   </div>
+  <div class="container p-5"><h4>Comentarios</h4></div>
+  <div id="comentarios" class="container p-5">
+  </div>
+  <div class="list-group-item list-group-item-action container p-5">
+    <h6><b>Añade un comentario</b></h6>
+    <form>
+      <textarea></textarea> <br>
+      <div class="star-rating">
+        <input id="star-5" type="radio" name="rating" value="5"  />
+        <label for="star-5" title="5 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+  
+        <input id="star-4" type="radio" name="rating" value="4"/>
+        <label for="star-4" title="4 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+  
+        <input id="star-3" type="radio" name="rating" value="3"/>
+        <label for="star-3" title="3 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+  
+        <input id="star-2" type="radio" name="rating" value="2" />
+        <label for="star-2" title="2 stars">
+          <i class="active fa fa-star"></i>
+        </label>
+  
+        <input id="star-1" type="radio" name="rating" value="1" checked/>
+        <label for="star-1" title="1 star">
+          <i class="active fa fa-star"></i>
+        </label>
+      </div> <br>
+      <button type="submit">Enviar</button>
+
+    </form>
+  </div>
+
+  
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

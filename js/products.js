@@ -9,12 +9,15 @@ const precioDesc = "21";
 const cantidadVendidos = "Cant."
 
 
+
 function showProductsList(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < productsArray.length; i++){ 
         let product = productsArray[i];
+        
         htmlContentToAppend += `
+        <a href="product-info.html" onclick="store('`+ product.name +`')">
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -26,7 +29,7 @@ function showProductsList(array){
                         <h4>`+ product.name +`</h4> 
                         <p> `+ product.description +`</p> <br><br><br><br>
                         <h6>` + product.currency + ` ` + product.cost + `</h6> 
-                        </div>
+                    </div>
                         <small class="text-muted">` + product.soldCount + ` vendidos <br> </small> 
 
                     </div>
@@ -34,6 +37,7 @@ function showProductsList(array){
                 </div>
             </div>
         </div>
+        </a>
         `
         document.getElementById("products").innerHTML = htmlContentToAppend; 
     }
@@ -62,6 +66,7 @@ function showProducts(array){
         ((maxCost==undefined) || (parseInt(product.cost) <= maxCost))){
 
         listaprod+=`
+    <a href="product-info.html" onclick="store('`+ product.name +`')">
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -73,7 +78,7 @@ function showProducts(array){
                         <h4>`+ product.name +`</h4> 
                         <p> `+ product.description +`</p> <br><br><br><br>
                         <h6>` + product.currency + ` ` + product.cost + `</h6> 
-                        </div>
+                    </div>
                         <small class="text-muted">` + product.soldCount + ` vendidos <br> </small> 
 
                     </div>
@@ -81,10 +86,15 @@ function showProducts(array){
                 </div>
             </div>
         </div>
+        </a>
         `
     
         }
         document.getElementById("products").innerHTML = listaprod; 
+        document.getElementById(`+nombrecito+`).addEventListener("click", function(){
+            localStorage.setItem("id", nombrecito);
+            window.location="product-info.html"
+        });
 }    
 }
 document.getElementById("filtrocost").addEventListener("click", function (){
@@ -169,4 +179,8 @@ function sortProductsandShow(sortCriteria, productsArray){
     document.getElementById("ordenarVendidos").addEventListener("click", function(){
     sortProductsandShow(cantidadVendidos, productsArray);
     });
-    
+
+
+function store(id){
+        localStorage.setItem("id", JSON.stringify({productname:id}));
+    }
