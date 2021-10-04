@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 var productsArray = [];
 var currentProductsArray = [];
+var search = undefined;
 
 const precioAsc = "12";
 const precioDesc = "21";
@@ -65,6 +66,9 @@ function showProducts(array){
         if(((minCost == undefined) || (parseInt(product.cost) >= minCost)) && 
         ((maxCost==undefined) || (parseInt(product.cost) <= maxCost))){
 
+            if (search == undefined || product.name.toLowerCase().indexOf(search) != -1){
+
+           
         listaprod+=`
     <a href="product-info.html" onclick="store('`+ product.name +`')">
         <div class="list-group-item list-group-item-action">
@@ -89,13 +93,9 @@ function showProducts(array){
         </a>
         `
     
-        }
-        document.getElementById("products").innerHTML = listaprod; 
-        document.getElementById(`+nombrecito+`).addEventListener("click", function(){
-            localStorage.setItem("id", nombrecito);
-            window.location="product-info.html"
-        });
-}    
+    }    
+} 
+document.getElementById("products").innerHTML = listaprod;}
 }
 document.getElementById("filtrocost").addEventListener("click", function (){
     minCost = document.getElementById("minc").value;
@@ -179,8 +179,28 @@ function sortProductsandShow(sortCriteria, productsArray){
     document.getElementById("ordenarVendidos").addEventListener("click", function(){
     sortProductsandShow(cantidadVendidos, productsArray);
     });
+    
+
 
 
 function store(id){
         localStorage.setItem("id", JSON.stringify({productname:id}));
     }
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    document.getElementById("search_p").addEventListener('input', function(){
+
+        search = document.getElementById("search_p").value.toLowerCase();
+
+        showProducts(productsArray);
+
+    });
+
+    document.getElementById("clean-search").addEventListener("click", function () {
+        document.getElementById("search_p").value = "";
+
+        search = undefined;
+        
+        showProducts(productsArray);
+    });
+});
