@@ -28,8 +28,5 @@ function recuperarDatos(){
     }
 }
 
-function borrarDatos(){
-    localStorage.removeItem("correo");
-}
 
 

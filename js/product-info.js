@@ -2,7 +2,8 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-var productsArray = []
+var commentsArray = [];
+
 function showProduct(product){
     let htmlContentToAppend = "";
         
@@ -37,37 +38,6 @@ function showProduct(product){
         document.getElementById("desc").innerHTML = htmlContentToAppend; 
 }
 
-function relProducts(productsArray){
-    let contenido = "";
-    
-    for (let i = 0; i < productsArray.length; i++){ 
-        function productw() {
-            let product = productsArray[i];
-            return product;
-        }
-
-        let related1 = product.relatedProducts[0];
-        let related2 = product.relatedProducts[1];
-
-        if (related1 === productsArray.findIndex(productw) || productsArray.findIndex(productw) === related2){
-        
-        contenido +=`
-        <div class="list-group-item list-group-item-action">
-        <div class="row">
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <div class="mb-1">
-                    <h4>`+ product.name +`</h4> 
-                    <p> `+ product.description +`</p> <br><br>
-                </div>
-            </div>
-        </div>
-        </div>`
-
-        document.getElementById("rel").innerHTML = contenido; 
-    }
-    }
-}
 function showComments(array){
     let htmlContentToAppend = "";
 
@@ -89,15 +59,13 @@ function showComments(array){
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") 
-        productsArray = resultObj.data;{
+        if (resultObj.status === "ok") {
             resultObj.data.forEach(products => {
                 if (products.name == JSON.parse(localStorage.getItem('id')).productname) {
                     product = products;
                     showProduct(product);
                 }
             });
-        relProducts(productsArray);
         }
     });
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
@@ -107,8 +75,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showComments(commentsArray);
         }
     });
-
-
 });
 document.addEventListener("DOMContentLoaded", function (e) {
    

@@ -28,8 +28,7 @@
         "img/Fiat Way_2.jpg",
         "img/Fiat Way_3.jpg",
         "img/Fiat Way_4.jpg"
-    ],
-    "relatedProducts": [0, 2]
+    ]
 },
 {
     "name": "Suzuki Celerio",
@@ -44,8 +43,7 @@
         "img/Suzuki Celerio_2.jpg",
         "img/Suzuki Celerio_3.jpg",
         "img/Suzuki Celerio_4.jpg"
-    ],
-    "relatedProducts": [1, 2]
+    ]
 },
 {
     "name": "Peugeot 208",
@@ -60,7 +58,6 @@
         "img/Peugeot 208_2.jpg",
         "img/Peugeot 208_3.jpg",
         "img/Peugeot 208_4.jpg"
-    ],
-    "relatedProducts": [1, 0]
+    ]
 }
 ]
