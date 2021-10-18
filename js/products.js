@@ -91,10 +91,6 @@ function showProducts(array){
     
         }
         document.getElementById("products").innerHTML = listaprod; 
-        document.getElementById(`+nombrecito+`).addEventListener("click", function(){
-            localStorage.setItem("id", nombrecito);
-            window.location="product-info.html"
-        });
 }    
 }
 document.getElementById("filtrocost").addEventListener("click", function (){

@@ -27,6 +27,49 @@
         font-size: 3.5rem;
       }
     }
+    .primary-cta{
+        background-color: #383c44;
+        align-content: right;
+        color: white;
+        padding: .6em 1.3em;
+        font-size: 17px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    .primary-cta2{
+        background-color: #383c44;
+        align-content: right;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 17px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    .secondary-cta{
+        background-color: #6c747c;
+        align-content: right;
+        color: white;
+        padding: .6em 1.3em;
+        font-size: 17px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    .align-right{
+      text-align: left;
+    }
+
+    .padding{
+      padding-left: 75px;
+    }
+    .margin-personalized{
+      margin-top: 50px;
+      margin-right: -20px;
+      margin-left: 20px;
+    }
+    
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -34,23 +77,76 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
+  <nav class="navbar site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-    </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="u_name" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" recuperarDatos()>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="index.html" href="borrardatos()">Cerrar sesión</a>
+        </div>
+      </div>
+      </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container margin-personalized ">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-center mt-4 mb-4">
+          <h5 class="font-weight-bold">Carrito de compras</h5>
+          <h6>Verás todos tus productos aquí</h6>
+        </div>
+      
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center col-md-6" colspan="2" scope="col">Producto</th>
+              <th class="text-center col-md-3" scope="col">Cantidad</th>
+              <th class="text-center col-md-3" scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody id="cartitems">
+          </tbody>
+        </table>
+      
+        <div class="float-right">
+          <p id="subtot" class="secondary-cta"></p>
+          <p id="envío" class="secondary-cta">Envío:</p>
+          <p id="tot" class="primary-cta">Total:</p>
+        </div>
+      </div>
+  
+  
+       <div class="col-md-6 col-sm-4 md-padding" >
+        <form class="align-right">
+          <h5 class="font-weight-bold mt-4" >Ingresá los datos de envío</h5></h5> <br>
+            <p class="font-weight-bold">Dirección:</p> 
+             <label for="street"></label> 
+             <input class= "input" type="text" name="street" id="street" placeholder="Calle" style="width:200x;" required>
+             <label for="numbering"></label>
+             <input class= "input" type="number" name="numbering" id="numbering" placeholder="Número" style="width:90px;"  required><br>
+             <label for="s_corner"></label> <br>
+             <input class= "input" type="text" name="s_corner" id="s_corner" placeholder="Esquina" style="width:300px;" required><br>
+             <label for="country"></label><br>
+             <input class="input" type="text" name="country" id="country" placeholder="País" style="width:300px;" required><br><br>
+            <p class="font-weight-bold">Envío:</p>
+             <input type="radio" name="envio" id="premium" required> Premium (2-5 días) - Costo del 15% del subtotal <br>
+             <input type="radio" name="envio" id="express"> Express (5-8 días) - Costo del 7% del subtotal <br>
+             <input type="radio" name="envio" id="estandar"> Estándar (12-15 días) - Costo del 5% del subtotal <br>
+            <button class="primary-cta2 mt-4" onclick="" id="" type="submit">Comprar</button> 
+        </form>
+       </div>
     </div>
+    
+  
   </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

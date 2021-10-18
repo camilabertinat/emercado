@@ -6,6 +6,10 @@
     font-weight: bold;
 }
 
+.bg-secondary{
+  background-color: #B5C7CF;
+}
+
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;

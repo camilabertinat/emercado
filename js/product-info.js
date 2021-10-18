@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 
 var productsArray = []
+var productoArray = []
 function showProduct(product){
     let htmlContentToAppend = "";
         
@@ -37,37 +38,31 @@ function showProduct(product){
         document.getElementById("desc").innerHTML = htmlContentToAppend; 
 }
 
-function relProducts(productsArray){
+function relProducts(product, productoArray){
     let contenido = "";
-    
-    for (let i = 0; i < productsArray.length; i++){ 
-        function productw() {
-            let product = productsArray[i];
-            return product;
-        }
-        
-        let related1 = product.relatedProducts[0];
-        let related2 = product.relatedProducts[1];
-        
-        if (related1 === i || i === related2){
-            alert("hola");
-        contenido +=`
-        <div class="list-group-item list-group-item-action">
-        <div class="row">
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <div class="mb-1">
-                    <h4>`+ product.name +`</h4> 
-                    <p> `+ product.description +`</p> <br><br>
-                </div>
-            </div>
-        </div>
-        </div>`
+        let related01 = product.relatedProducts[0];
+        let related02 = product.relatedProducts[1];
 
-        document.getElementById("rel").innerHTML = contenido; 
-    }
-    }
-}
+        for (let i = 0; i < productoArray.length; i++){
+            let prod = productoArray[i];
+
+            if (related01 === productoArray.indexOf(prod) ||  related02 === productoArray.indexOf(prod)){
+            contenido +=`
+            <a href="product-info.html" onclick="guardar('`+ prod.name +`')">
+            <div class="list-group-item list-group-item-action">
+
+                        <img src="`+prod.imgSrc+`" width=200>
+                        <h4>`+ prod.name +`</h4> <br> 
+                        <p> `+ prod.description +`</p> <br><br>
+                    </div>
+
+            </div>
+            </a>`
+
+            document.getElementById("rel").innerHTML = contenido; 
+        }
+}}
+
 function showComments(array){
     let htmlContentToAppend = "";
 
@@ -88,16 +83,22 @@ function showComments(array){
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            productoArray = resultObj.data;
+        }
+    });
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") 
         productsArray = resultObj.data;{
             resultObj.data.forEach(products => {
-                if (products.name == JSON.parse(localStorage.getItem('id')).productname) {
+                if (products.name == JSON.parse(localStorage.getItem('id')).productname || products.name == JSON.parse(localStorage.getItem('id')).productnamey) {
                     product = products;
                     showProduct(product);
+                    relProducts(product, productoArray)
                 }
             });
-        relProducts(productsArray);
         }
     });
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
@@ -109,7 +110,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 
+
 });
 document.addEventListener("DOMContentLoaded", function (e) {
    
 });
+function guardar(id){
+    localStorage.setItem("id", JSON.stringify({productnamey:id}));
+}
