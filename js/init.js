@@ -42,6 +42,8 @@ var getJSONData = function(url){
     });
 }
 
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -52,3 +54,23 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("u_name").innerHTML =
     "Usuario: " + correo.e_mail;}
 });
+
+document.addEventListener("DOMContentLoaded", function(e){
+  if (localStorage.getItem("correo")){
+    correo_json = localStorage.getItem("correo");
+    correo = JSON.parse(correo_json);
+    document.getElementById("u3_name").innerHTML =
+    "Usuario: " + correo.e_mail;}
+});
+
+
+
+document.getElementById("cerrarses").addEventListener("click", function(e){
+
+  localStorage.removeItem('correo');
+  localStorage.removeItem('pname');
+  localStorage.removeItem('plname');
+  localStorage.removeItem('page');
+  localStorage.removeItem('pphone');
+});
+

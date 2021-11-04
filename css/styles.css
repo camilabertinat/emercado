@@ -1,32 +1,91 @@
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
 }
+.prods{
+  align-content: center;
+}
 
 .jumbotron .display-4{
     font-weight: bold;
 }
-
-.bg-secondary{
-  background-color: #B5C7CF;
+.navtext:hover{
+  color: #9792c7;
+  font-weight: bold;
+  text-decoration: none;
 }
 
+.nomargin{
+  margin-left: 0;
+  display: inline-flex;
+}
+
+.btn-me:hover{
+  color:#9792c7;
+}
+.nav {
+  background-color: hsl(0, 0%, 100%);
+  font-weight: bold;
+}
+.bg-secondary{
+  background-color: #F1F1F1;
+}
+.bg {
+  background-color: #f5f5f5;
+}
+
+ .btn-me {
+  background-color: #f5f5f5;
+  border-radius: 18px;
+  color: #72D2B8;
+  font-weight: bold;
+  border: none;
+}
+
+.prof-btn{
+  padding: 5px 15px 5px 15px;
+}
+
+.header-img{
+  display: inline-block;
+  margin:auto;
+  width: 50px;
+  align-self: center;
+
+}
 .jumbotron {
-  height: 50vh;
-  padding: 5em inherit;
-  margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  margin-top: 25px;
+  height: 48vh;
+  padding-top: 50px;
+  background: url('../img/portada.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: black;
   font-weight: bold;
+  margin-bottom: 0;
 }
+.sided {
+  float: left;
+  width: 80px;
+  padding: 5px;
+  margin: auto;
+}
+.c-n{
+  font-size: 35px;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  padding: 10px;
+  border: 3px solid #9792c7;
+  color: #f5dd45;
+  text-align: center;
+}
+
 
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: 6rem;
-    padding-bottom: 6rem;
+
   }
 }
 
@@ -40,7 +99,7 @@
 
 .jumbotron .container {
   max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: f6f6f6;
   border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
@@ -59,7 +118,7 @@ footer p {
 }
 
 .site-header a {
-  color: white;
+  color: #72D2B8;
   transition: ease-in-out color .15s;
 }
 
@@ -152,5 +211,8 @@ a.custom-card:hover {
 
 #u_name{
   display: inline-block;
-  color: white;
 }
+ .c_container{
+   background-color: white;
+
+ }

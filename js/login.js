@@ -19,14 +19,7 @@ function guardarDatos(){
     localStorage.setItem("correo", correo_json);
 }
 
-function recuperarDatos(){
-    if (localStorage.getItem("correo")){
-        correo_json = localStorage.getItem("correo");
-        correo = JSON.parse(n_usuario_json);
-        document.getElementById("u_name").innerHTML =
-        "Usuario: " + correo.e_mail;
-    }
-}
+
 
 
 

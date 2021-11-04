@@ -17,28 +17,28 @@ function showProductsList(array){
         let product = productsArray[i];
         
         htmlContentToAppend += `
-        <a href="product-info.html" onclick="store('`+ product.name +`')">
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ product.name +`</h4> 
-                        <p> `+ product.description +`</p> <br><br><br><br>
-                        <h6>` + product.currency + ` ` + product.cost + `</h6> 
+        <div class="col-md-4 nomargin">
+            
+                <div class="card mb-4 shadow-">
+                <a href="product-info.html" onclick="store('`+ product.name + `')">
+                    <img class="card-img-top" src="` + product.imgSrc + `" alt="` + product.description + `">
+                    <div class="card-body">
+                        <h5> `+ product.name + `</h5>
+                        <p class="card-text">` + product.description + `</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                            <h6>` + product.currency + ` ` + product.cost + `</h6>
+                            </div>
+                            <small class="text-muted">` + product.soldCount + ` vendidos</small>
+                        </div>
                     </div>
-                        <small class="text-muted">` + product.soldCount + ` vendidos <br> </small> 
-
-                    </div>
-
+                </a>
                 </div>
-            </div>
+            
         </div>
-        </a>
         `
+        
+        
         document.getElementById("products").innerHTML = htmlContentToAppend; 
     }
 }
@@ -66,27 +66,25 @@ function showProducts(array){
         ((maxCost==undefined) || (parseInt(product.cost) <= maxCost))){
 
         listaprod+=`
-    <a href="product-info.html" onclick="store('`+ product.name +`')">
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ product.name +`</h4> 
-                        <p> `+ product.description +`</p> <br><br><br><br>
-                        <h6>` + product.currency + ` ` + product.cost + `</h6> 
+        <div class="col-md-4 nomargin">
+            
+                <div class="card mb-4 shadow-">
+                <a href="product-info.html" onclick="store('`+ product.name + `')">
+                    <img class="card-img-top" src="` + product.imgSrc + `" alt="` + product.description + `">
+                    <div class="card-body">
+                        <h5> `+ product.name + `</h5>
+                        <p class="card-text">` + product.description + `</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                            <h6>` + product.currency + ` ` + product.cost + `</h6>
+                            </div>
+                            <small class="text-muted">` + product.soldCount + ` vendidos</small>
+                        </div>
                     </div>
-                        <small class="text-muted">` + product.soldCount + ` vendidos <br> </small> 
-
-                    </div>
-
+                </a>
                 </div>
-            </div>
+            
         </div>
-        </a>
         `
     
         }

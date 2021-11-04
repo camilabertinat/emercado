@@ -41,22 +41,21 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="u_name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" recuperarDatos()>
+        <button class="btn btn-secondary dropdown-toggle" id="u_name" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="index.html" href="borrardatos()">Cerrar sesión</a>
+          <a class="dropdown-item" href="index.html" id="cerrarses">Cerrar sesión</a>
         </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <h3 style="font-weight: bold;">Mi perfil</h3>
+    <div id="profile-info" ></div>
   </div>
+
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
@@ -82,6 +81,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+
 </body>
 
 </html>
