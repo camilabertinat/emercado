@@ -13,7 +13,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>.star-rating {
+  <style>
+    .star-rating {
     direction: rtl;
     display: inline-block;
     padding: 20px
@@ -35,6 +36,17 @@
 .star-rating input[type=radio]:checked ~ label {
     color: #ffbf00
 }
+
+.star-rating2 input[type=radio] {
+    display: none;
+}
+
+
+.yellow {
+  color:#ffbf00;
+}
+
+
 </style>
 </head>
 
@@ -63,8 +75,8 @@
   </div>
   <div class="list-group-item list-group-item-action container p-5">
     <h6><b>Añade un comentario</b></h6>
-    <form>
-      <textarea></textarea> <br>
+    <form id="com">
+      <textarea id="comdesc"></textarea> <br>
       <div class="star-rating">
         <input id="star-5" type="radio" name="rating" value="5"  />
         <label for="star-5" title="5 stars">
@@ -91,7 +103,7 @@
           <i class="active fa fa-star"></i>
         </label>
       </div> <br>
-      <button type="submit">Enviar</button>
+      <button type="button" onclick="addComment()">Enviar</button>
 
     </form>
   </div>

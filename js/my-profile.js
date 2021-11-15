@@ -6,11 +6,16 @@ function editprof(){
     let editprof = "";
 
     editprof += `
+    <input class="formControl" type="file" id="inputFile" onchange="previewFile()" placeholder="">
+        <img id="foto" src="" alt="Acá va la imagen" height="200">
+        <button class="btn btn-primary" id="guardar" onclick="guardar()">Guardar</button>
+ 
+
     <h6>Nombres:</h6><input type="text" name="name" id="fs_name">
     <h6>Apellidos:</h6><input type="text" name="lname"id="l_name" >
     <h6>Edad:</h6><input type="number" name="age" min="18" id="p-age" >
     <h6>Teléfono de contacto</h6><input type="text" name="p-phone" id="p-phone"> <br><br>
-    <button onclick="saveprofiledata(); chargeprofile();" type="button" id="p_info" class="btn-me prof-btn" data-toggle="modal">Guardar datos</button>
+    <button onclick="saveprofiledata(); chargeprofile(); " type="button" id="p_info" class="btn-me prof-btn" data-toggle="modal">Guardar datos</button>
     `
     document.getElementById("profile-info").innerHTML = editprof;
 }
@@ -75,9 +80,11 @@ function getPhone(){
 
 
 
+
 function chargeprofile(){
     let profinfo="";
     profinfo +=`
+    <img id="foto2" src="" alt="Acá va la imagen" height="200">
     <h5><span id="nombre">Nombre: </span> <br> <span id="apellido">Apellido: </span> </h5>
     <h6>Edad: <span id="edad"></span></h6>
     <h6 id="cemail">E-mail: </h6>
@@ -95,10 +102,38 @@ function chargeprofile(){
     getLastName();
     getAge();
     getPhone();
+    document.getElementById("foto2").src = (localStorage.getItem("laImagen"));
+    
 }
 
 document.addEventListener("DOMContentLoaded", function (e){
     chargeprofile();
+  
     });
 
+function previewFile(){
+        let preview = document.getElementById("foto");
+        let file = document.getElementById("inputFile").files[0];
 
+        let reader = new FileReader();
+
+        reader.onload = function (){
+            preview.src = reader.result;
+        }
+
+        if (file){
+            reader.readAsDataURL(file)
+        }
+        else{
+            preview.src = "img/avatar.png"
+
+        }
+    }
+
+    function guardar(){
+        let preview = document.getElementById("foto");
+        localStorage.setItem("laImagen", JSON.stringify(preview.src))
+        alert("imagen guardada");
+    }
+
+    

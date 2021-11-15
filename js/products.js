@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 var productsArray = [];
 var currentProductsArray = [];
+var p_search; 
 
 const precioAsc = "12";
 const precioDesc = "21";
@@ -65,6 +66,7 @@ function showProducts(array){
         if(((minCost == undefined) || (parseInt(product.cost) >= minCost)) && 
         ((maxCost==undefined) || (parseInt(product.cost) <= maxCost))){
 
+            if (p_search == undefined || product.name.toLowerCase().indexOf(p_search) != -1 || product.description.toLowerCase().indexOf(p_search) != -1 ) 
         listaprod+=`
         <div class="col-md-4 nomargin">
             
@@ -174,6 +176,18 @@ function sortProductsandShow(sortCriteria, productsArray){
     sortProductsandShow(cantidadVendidos, productsArray);
     });
 
+    document.getElementById("search").addEventListener('input', function () {
+
+        p_search = document.getElementById("search").value.toLowerCase();
+
+        showProducts(productsArray);
+
+    });
+    document.getElementById("c_search").addEventListener("click", function () {
+        document.getElementById("search").value = "";
+        p_search = undefined;
+        showProducts(productsArray);
+    });
 
 function store(id){
         localStorage.setItem("id", JSON.stringify({productname:id}));

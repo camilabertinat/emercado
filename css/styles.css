@@ -4,7 +4,23 @@
 .prods{
   align-content: center;
 }
+.width{
+  width: 250px;
+}
+.delete{
+  background-color: none;
+  border: none;
+}
+.carousel-control-next {
+  width: 25%;
+  filter: invert(100%);
 
+}
+.carousel-control-prev {
+  width: 2 5%;
+  filter: invert(100%);
+
+}
 .jumbotron .display-4{
     font-weight: bold;
 }
